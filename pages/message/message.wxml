@@ -1,0 +1,8 @@
+<!--pages/message/message.wxml-->
+<view wx:for="{{ dataList }}" wx:key="id" class='card'>
+  <text class='card-title'>{{item.title}}</text>
+  <text class="card-date">{{item.date}}</text>
+  <image class='card-img'  src="{{item.image}}" mode='aspectFill'></image>
+  <text class='card-desc'>{{item.desc}}</text>
+  <text class='card-more arrow'>更多详情</text>
+</view>

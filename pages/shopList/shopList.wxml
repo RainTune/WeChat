@@ -1,0 +1,32 @@
+<!--pages/shopList/shopList.wxml-->
+<view class="shop">
+    <image src="http://p1.meituan.net/deal/c33896b010717ec0185378aebdad838e33623.jpg@360w_328h_1e_1c"></image>
+    <view class="shop-info">
+        <text class="shop-title">店铺名称--模板</text>
+        <text class="shop-tel">电话</text>
+        <text class="shop-addr">地址</text>
+        <text class="shop-time">营业时间</text>
+    </view>
+    <view class="shop-star">
+        <view class="star-down">★★★★★</view>
+        <view class="star-up" style="width: 70%">★★★★★</view>
+    </view>
+</view>
+
+<view wx:for="{{ shopList }}"  wx:key="id" class="shop">
+    <image src="{{ item.images[0] }}"></image>
+    <view class="shop-info">
+        <text class="shop-title ellipsis">{{ item.name }}</text>
+        <text class="shop-tel">电话：{{ item.phone }}</text>
+        <text class="shop-addr">地址：{{ item.address }}</text>
+        <text class="shop-time">营业时间：{{ item.businessHours }}</text>
+    </view>
+    <view class="shop-star">
+        <view class="star-down">★★★★★</view>
+        <view class="star-up" style="width: {{ item.score }}%;">★★★★★</view>
+    </view>
+</view>
+
+<!--设置加载样式-->
+<view wx:if="{{ hasMore }}" class="loadmore loading">玩命加载中...</view>
+<view wx:else class="loadmore">大爷，没有数据了...</view>

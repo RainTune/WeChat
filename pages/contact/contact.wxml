@@ -1,0 +1,69 @@
+<view class='cell'>
+  <navigator class='cell-item'>
+    <text>基本表单</text>
+  </navigator>
+  <view class='cell-item arrow'>
+    <input type="text" placeholder='text'></input>
+  </view>
+  <view class='cell-item arrow'>
+    <input type='password' placeholder='type=password'></input>
+  </view>
+  <view class='cell-item arrow'>
+    <input type='text' password placeholder='type=text|password推荐'></input>
+  </view>
+  <view class='cell-item arrow'>
+    <input type='number' placeholder='number'></input>
+  </view>
+  <view class='cell-item arrow'> 
+    <input type='idcard' placeholder='idcard'></input>
+  </view>
+  <view class='cell-item arrow'> 
+    <input type='digit'placeholder="digit"></input>
+  </view>    
+</view>
+
+
+<view class='gap'></view>
+
+
+<view class='cell'>
+  <navigator class='cell-item arrow'>
+    <text>其他表单元素</text>
+  </navigator>
+  <view class='cell-item arrow'>
+    <checkbox-group bindchange="checkboxChange" data-params="传递参数">
+      <checkbox checked value='1'>1</checkbox>
+      <checkbox value='2'>2</checkbox>
+    </checkbox-group>
+  </view>
+  <view class='cell-item arrow'>
+    <radio-group bindchange="radioChange" data-params="传递参数">
+      <radio checked value='male' color='red'>男</radio>
+      <radio value='female'>女</radio>
+      <radio value='secret' disabled>保密</radio>
+    </radio-group>
+    <switch color='gold'></switch>
+  </view>
+</view>
+
+<!--wxs是为了解决在wxml页面中只能使用data,而不能使用函数的问题-->
+<wxs module= "foo">
+  var sum = function(a,b) {
+    return a+b;
+  }
+  module.exports.sum = sum;
+</wxs>
+<view>{{ foo.sum(1,2) }}</view>
+
+<view class='gap'></view>
+<view>
+  <navigator class='cell-item arrow'>
+    <text>事件</text>
+  </navigator>
+  <view class='father' bindtap='fatherTap'>
+    父亲
+    <view class='son' catchtap='sonTap' data-index="1">儿子</view>
+    <view class='son' catchtap='sonTap' data-index="2">儿子</view>
+  </view>
+  
+</view>
